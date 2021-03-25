@@ -1,6 +1,6 @@
 import json
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 # from django.shortcuts import HttpResponse
@@ -9,7 +9,6 @@ from .models import Rock
 
 def load_rocks(request):
     json_file = 'minerals.json'
-    db_file = 'minerals.db'
 
     # open json
     with open(json_file, encoding='utf-8') as f:
@@ -17,6 +16,8 @@ def load_rocks(request):
 
     for rock in rocks:
         print(rock['name'])
+
+    return redirect('rocks:rock_list')
 
 
 def rock_list(request):

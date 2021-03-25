@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'courses'
+app_name = 'rocks'
 
 # make our variable, a list, in the old Django, it didn't use to be a list, now it's just a list
 urlpatterns = [
