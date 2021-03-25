@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bounds bounds--small">
+    <div class="grid-100">
+        <a href="{% url 'rocks:rock_list' %}">
+            <h1 class="logo__name text-centered">Macky's Mineral</h1>
+        </a>
+        <p class="logo__text text-centered">They're not rocks!</p>
+    </div>
+
+    <div class="grid-100 mineral__container">
+        <h1 class="mineral__name">{{ rock.name }}</h1>
+        <div class="mineral__image-bg">
+            <img class="mineral__image" src="assets/images/{{ rock.name }}.jpg">
+            <p class="mineral__caption">Mineral caption goes here</p>
+        </div>
+        <div class="mineral__table-container">
+            <table class="mineral__table">
+                <tbody>
+                    <tr>
+                        <td class="mineral__category">Category</td>
+                        <td>{{ rock.category }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Formula</td>
+                        <td>{{ rock.formula }}</td>                    
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Strunz Classification</td>
+                        <td>{{ rock.strunz_classification }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Color</td>
+                        <td>{{ rock.color }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Crystal System</td>
+                        <td>{{ rock.crystal_system }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Unit Cell</td>
+                        <td>{{ rock.unit_cell }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Crystal Symmetry</td>
+                        <td>{{ rock.crystal_symmetry }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Cleavage</td>
+                        <td>{{ rock.cleavage }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Mohs scale Hardness</td>
+                        <td>{{ rock.mohs_scale_hardness }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Luster</td>
+                        <td>{{ rock.luster }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Streak</td>
+                        <td>{{ rock.streak }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Diaphaneity</td>
+                        <td>{{ rock.diaphaneity }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Optical Properties</td>
+                        <td>{{ rock.optical_properties }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Refractive Index</td>
+                        <td>{{ rock.refractive_index }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Crystal Habit</td>
+                        <td>{{ rock.crystal_habit }}</td>
+                    </tr>
+                    <tr>
+                        <td class="mineral__category">Specific Gravity</td>
+                        <td>{{ rock.specific_gravity }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

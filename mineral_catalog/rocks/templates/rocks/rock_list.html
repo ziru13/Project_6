@@ -1,13 +1,21 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="grid-100">
-    <ul class="minerals__container">
-        {% for rock in rocks %}
-        <li class="minerals__item">
-            <a class="minerals__anchor" href="#">{{ rock.name }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+<div class="bounds">
+    <div class="grid-100">
+        <a href="#">
+            <h1 class="logo__name text-centered">Macky's Mineral</h1>
+        </a>
+        <p class="logo__text text-centered">They're not rocks!</p>
+    </div>
+    <div class="grid-100">
+        <ul class="minerals__container">
+            {% for rock in rocks %}
+            <li class="minerals__item">
+                <a class="minerals__anchor" href="{% url 'rocks:rock_detail' pk=rock.pk %}">{{ rock.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 {% endblock %}

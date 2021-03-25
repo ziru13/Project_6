@@ -5,10 +5,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Macky's Mineral: A magnificant catalog of minerals{% endblock %}</title>
+    <title>{% block title %}Macky's Mineral: A magnificent catalog of minerals{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 <body>
+    {% block content %}
     <div class="bounds">
         <div class="grid-100">
             <a href="#">
@@ -16,8 +17,8 @@
             </a>
             <p class="logo__text text-centered">They're not rocks!</p>
         </div>
-        {% block content %}{% endblock %}
     </div>
+    {% endblock %}
     <div class="minerals_random">
         <a class="minerals__anchor" href="#">Show random mineral</a>
         <a class="minerals__anchor" href="{% url 'rocks:load_rocks' %}">Load Rocks</a>
