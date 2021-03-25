@@ -8,14 +8,17 @@ from .models import Rock
 
 
 def load_rocks(request):
-    json_file = 'minerals.json'
+    json_file = 'assets/minerals.json'  # 要指名文件目录
 
     # open json
     with open(json_file, encoding='utf-8') as f:
         rocks = json.load(f)
 
     for rock in rocks:
-        print(rock['name'])
+        # print(rock['name'])
+        # create rock object
+        Rock.objects.create(
+            name=rock['name'])     # 从Rock模型中
 
     return redirect('rocks:rock_list')
 
