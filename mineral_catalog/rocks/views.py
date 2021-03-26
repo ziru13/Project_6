@@ -1,4 +1,6 @@
 import json
+import random
+import string
 
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -20,6 +22,7 @@ def load_rocks(request):
         Rock.objects.create(         # 从Rock模型中创建一个rock
             name=rock['name'] if 'name' in rock else '',
             category=rock['category'] if 'category' in rock else '',
+            image_caption=rock['image caption'] if 'image caption' in rock else '',
             formula=rock['formula'] if 'formula' in rock else '',
             strunz_classification=rock['strunz classification'] if 'strunz classification' in rock else '',
             unit_cell=rock['unit cell'] if 'unit cell' in rock else '',
@@ -49,29 +52,18 @@ def rock_detail(request, pk):
     return render(request, 'rocks/rock_detail.html', {'rock': rock})
 
 
-# def load_detail(request, pk):
-#     rock = RockDetail.objects.get(pk)
-#     # open json
-#     with open(json_file, encoding='utf-8') as f:
-#         rocks = json.load(f)
-# 
-#         for x in rocks:
-#             for each in x:
-#                 if each['name'] == rock.name:
-#                     rock.category = each['category']
-#                     rock.formula = each['formula']
-#                     rock.strunz_classification = each['strunz classification']
-#                     rock.unit_cell = each['unit cell']
-#                     rock.color = each['color']
-#                     rock.crystal_symmetry = each['crystal symmetry']
-#                     rock.mohs_scale_hardness = each['mohs scale hardness']
-#                     break
-#     return redirect('rocks:rock_detail')
+def random_rock(request):
+    rocks = list(Rock.objects.all())
+    rock = random.choice(rocks)
+    return render(request, 'rocks/rock_detail.html', {'rock': rock})
 
 
+# def sort_rocks(request, letter):
+#     letters = list(string.ascii_uppercase)
+#     rocks_a = Rock.objects.filter(name__startswith=letter)
+#     return render(request, 'rocks/rock_a.html', {'letters': letters,
+#                                                  'rocks_a': rocks_a})
 
-
-# def rock_letter(request, letter):
-#     letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-#                'V', 'W', 'X', 'Y', 'Z']
-#     return letters
+def sort_rocks(request, letter):
+    rocks_cap = Rock.objects.filter(name__startswith=letter)
+    return render(request, 'rocks/rocks_cap.html', {'rocks_cap': rocks_cap})

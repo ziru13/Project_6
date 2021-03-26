@@ -7,19 +7,18 @@
             <h1 class="logo__name text-centered">Macky's Mineral</h1>
         </a>
         <p class="logo__text text-centered">They're not rocks!</p>
-    <div class="grid-100">
-        <table class="letter">
+        <table class="logo__text text-centered">
             <tr>
                 {% for letter in 'ABCDEFGHIJKMLNOPQRSTUVWXYZ' %}
                 <td><a href="{% url 'rocks:sort_rocks' letter %}">{{ letter }}</a></td>
                 {% endfor %}
             </tr>
         </table>
-    </div>
+    
     </div>
     <div class="grid-100">
         <ul class="minerals__container">
-            {% for rock in rocks %}
+            {% for rock in rocks_cap %}
             <li class="minerals__item">
                 <a class="minerals__anchor" href="{% url 'rocks:rock_detail' pk=rock.pk %}">{{ rock.name }}</a>
             </li>

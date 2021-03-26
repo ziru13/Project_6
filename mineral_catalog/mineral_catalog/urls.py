@@ -22,7 +22,7 @@ from . import views
 urlpatterns = [
     path('rocks/', include('rocks.urls')),
     path('admin/', admin.site.urls),
-    path('', views.hello_world, name='hello_world')
+    path('', views.hello_world, name='hello_world'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

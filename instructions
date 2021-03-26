@@ -1,0 +1,35 @@
+*1. Use SQLite to store the mineral data.
+	Write a script to that constructs a mineral model instance for each mineral in minerals.json 
+	and saves them to a SQLite database.
+	
+*2. Create a layout template for the app.
+	The layout template should contain the title of the site. 
+	You can name the site anything you want
+	
+*3. Create a template and view to show the names of all the minerals.
+	This view should display the name of each mineral in the database. 
+	Each name in the list is a link to the detail view of the mineral. 
+	See index.html and list-preview.png
+
+*4. Create a mineral details template and view.
+	The detail view should display the details of the selected mineral.
+	The details template should contain the mineral’s name, image, and image caption. 
+	Other details that are available about the mineral should be displayed below the image caption. 
+	See detail.html and detail-preview.png.
+	
+5. Use a template filter to display the name of each attribute in title case.
+
+6. Write unit tests to test that each view is displaying the correct information.
+
+*7. Make the templates match the style used in the example files.
+	Look at the example HTML files and global.css to determine 
+	which id and class attributes to use on the elements in the pages you generate.
+	
+Extra Credit
+1. Display the most common or important details at the top of the details list. 
+	You can decide on what order to display them in. 
+	The other miscellaneous details can be in any order.
+	
+*2. Add a link that goes to a random mineral details page.
+
+3. In addition to those provided, additional styles are added and used.

@@ -8,4 +8,6 @@ urlpatterns = [
     path('', views.rock_list, name='rock_list'),
     path('load-rocks/', views.load_rocks, name='load_rocks'),
     path('<int:pk>/', views.rock_detail, name='rock_detail'),
+    path('random/', views.random_rock, name='random_rock'),
+    path('<str:letter>/', views.sort_rocks, name='sort_rocks'),
 ]

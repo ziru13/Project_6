@@ -12,15 +12,24 @@
     {% block content %}
     <div class="bounds">
         <div class="grid-100">
-            <a href="#">
+            <a href="{% url 'rocks:rock_list' %}">
                 <h1 class="logo__name text-centered">Macky's Mineral</h1>
             </a>
             <p class="logo__text text-centered">They're not rocks!</p>
         </div>
+        <div class="grid-100">
+            <table class="letter">
+                <tr>
+                    {% for letter in 'ABCDEFGHIJKMLNOPQRSTUVWXYZ' %}
+                        <td><a href="{% url 'rocks:sort_rocks' letter %}">{{ letter }}</a></td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
     </div>
     {% endblock %}
-    <div class="minerals_random">
-        <a class="minerals__anchor" href="#">Show random mineral</a>
+    <div class="minerals__random">
+        <a class="minerals__anchor" href="{% url 'rocks:random_rock' %}">Show Random Mineral</a>
         <a class="minerals__anchor" href="{% url 'rocks:load_rocks' %}">Load Rocks</a>
     </div>
 </body>
