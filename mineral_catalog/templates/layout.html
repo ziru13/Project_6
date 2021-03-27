@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 <body>
-    {% block content %}
     <div class="bounds">
         <div class="grid-100">
             <a href="{% url 'rocks:rock_list' %}">
@@ -26,8 +25,12 @@
                 </tr>
             </table>
         </div>
+        
+        {% block content %}{% endblock %}
+        
     </div>
-    {% endblock %}
+    
+    
     <div class="minerals__random">
         <a class="minerals__anchor" href="{% url 'rocks:random_rock' %}">Show Random Mineral</a>
         <a class="minerals__anchor" href="{% url 'rocks:load_rocks' %}">Load Rocks</a>
