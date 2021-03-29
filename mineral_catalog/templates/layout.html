@@ -19,18 +19,14 @@
         <div class="grid-100">
             <table class="letter">
                 <tr>
-                    {% for letter in 'ABCDEFGHIJKMLNOPQRSTUVWXYZ' %}
+                    {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
                         <td><a href="{% url 'rocks:sort_rocks' letter %}">{{ letter }}</a></td>
                     {% endfor %}
                 </tr>
             </table>
         </div>
-        
         {% block content %}{% endblock %}
-        
     </div>
-    
-    
     <div class="minerals__random">
         <a class="minerals__anchor" href="{% url 'rocks:random_rock' %}">Show Random Mineral</a>
         <a class="minerals__anchor" href="{% url 'rocks:load_rocks' %}">Load Rocks</a>

@@ -1,6 +1,5 @@
 import json
 import random
-import string
 
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -49,6 +48,14 @@ def rock_list(request):
 
 def rock_detail(request, pk):
     rock = get_object_or_404(Rock, pk=pk)
+
+    items = []
+    for item in rock.items().all():
+        for key, value in item:
+            key = key.replace('_', ' ').title()
+            items.append(key, value)
+    rock.items = items
+
     return render(request, 'rocks/rock_detail.html', {'rock': rock})
 
 
@@ -57,12 +64,6 @@ def random_rock(request):
     rock = random.choice(rocks)
     return render(request, 'rocks/rock_detail.html', {'rock': rock})
 
-
-# def sort_rocks(request, letter):
-#     letters = list(string.ascii_uppercase)
-#     rocks_a = Rock.objects.filter(name__startswith=letter)
-#     return render(request, 'rocks/rock_a.html', {'letters': letters,
-#                                                  'rocks_a': rocks_a})
 
 def sort_rocks(request, letter):
     rocks_cap = Rock.objects.filter(name__startswith=letter)

@@ -11,102 +11,114 @@
     <div class="mineral__table-container">
         <table class="mineral__table">
             <tbody>
-                {% if rock.category|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Category</td>
-                    <td>{{ rock.category }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.formula|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Formula</td>
-                    <td>{{ rock.formula }}</td>                    
-                </tr>
-                {% endif %}
-                {% if rock.strunz_classification|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Strunz Classification</td>
-                    <td>{{ rock.strunz_classification }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.color|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Color</td>
-                    <td>{{ rock.color }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.crystal_system|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Crystal System</td>
-                    <td>{{ rock.crystal_system }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.unit_cell|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Unit Cell</td>
-                    <td>{{ rock.unit_cell }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.crystal_symmetry|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Crystal Symmetry</td>
-                    <td>{{ rock.crystal_symmetry }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.cleavage|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Cleavage</td>
-                    <td>{{ rock.cleavage }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.mohs_scale_hardness|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Mohs scale Hardness</td>
-                    <td>{{ rock.mohs_scale_hardness }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.luster|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Luster</td>
-                    <td>{{ rock.luster }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.streak|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Streak</td>
-                    <td>{{ rock.streak }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.diaphaneity|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Diaphaneity</td>
-                    <td>{{ rock.diaphaneity }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.optical_properties|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Optical Properties</td>
-                    <td>{{ rock.optical_properties }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.refractive_index|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Refractive Index</td>
-                    <td>{{ rock.refractive_index }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.crystal_habit|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Crystal Habit</td>
-                    <td>{{ rock.crystal_habit }}</td>
-                </tr>
-                {% endif %}
-                {% if rock.specific_gravity|length > 0 %}
-                <tr>
-                    <td class="mineral__category">Specific Gravity</td>
-                    <td>{{ rock.specific_gravity }}</td>
-                </tr>
-                {% endif %}
+                {% for item in rock.items %}
+                    {for key, value in item %}
+                        {% if item.value %}
+                        <tr>
+                            <td class="mineral__category">{{ item.key }}</td>
+                            <td>{{ value }}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                    
+                
+<!--                {% if rock.category|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Category</td>-->
+<!--                    <td>{{ rock.category }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.formula|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Formula</td>-->
+<!--                    <td>{{ rock.formula }}</td>                    -->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.strunz_classification|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Strunz Classification</td>-->
+<!--                    <td>{{ rock.strunz_classification }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.color|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Color</td>-->
+<!--                    <td>{{ rock.color }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.crystal_system|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Crystal System</td>-->
+<!--                    <td>{{ rock.crystal_system }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.unit_cell|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Unit Cell</td>-->
+<!--                    <td>{{ rock.unit_cell }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.crystal_symmetry|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Crystal Symmetry</td>-->
+<!--                    <td>{{ rock.crystal_symmetry }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.cleavage|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Cleavage</td>-->
+<!--                    <td>{{ rock.cleavage }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.mohs_scale_hardness|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Mohs scale Hardness</td>-->
+<!--                    <td>{{ rock.mohs_scale_hardness }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.luster|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Luster</td>-->
+<!--                    <td>{{ rock.luster }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.streak|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Streak</td>-->
+<!--                    <td>{{ rock.streak }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.diaphaneity|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Diaphaneity</td>-->
+<!--                    <td>{{ rock.diaphaneity }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.optical_properties|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Optical Properties</td>-->
+<!--                    <td>{{ rock.optical_properties }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.refractive_index|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Refractive Index</td>-->
+<!--                    <td>{{ rock.refractive_index }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.crystal_habit|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Crystal Habit</td>-->
+<!--                    <td>{{ rock.crystal_habit }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
+<!--                {% if rock.specific_gravity|length > 0 %}-->
+<!--                <tr>-->
+<!--                    <td class="mineral__category">Specific Gravity</td>-->
+<!--                    <td>{{ rock.specific_gravity }}</td>-->
+<!--                </tr>-->
+<!--                {% endif %}-->
             </tbody>
         </table>
     </div>
